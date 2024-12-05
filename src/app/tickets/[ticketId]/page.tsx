@@ -4,8 +4,10 @@ type TicketPageProps = {
 	params: { ticketId: string };
 };
 
-export default function TicketPage({ params }: TicketPageProps) {
-	const ticket = initialTickets.find((item) => item.id === params.ticketId);
+export default async function TicketPage({ params }: TicketPageProps) {
+	const { ticketId } = await params;
+	const ticket = initialTickets.find((item) => item.id === ticketId);
+	console.log("@@@DEBUG", ticket);
 
 	if (!ticket) {
 		return <div>Ticket not found</div>;

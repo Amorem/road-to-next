@@ -5,7 +5,7 @@ export default function Homepage() {
 	return (
 		<div>
 			<h2 className="text-lg">Homepage</h2>
-			<Link href={ticketsPath}>Tickets</Link>
+			<Link href={ticketsPath}>Go to Tickets</Link>
 		</div>
 	);
 }
