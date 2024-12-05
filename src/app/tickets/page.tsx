@@ -5,14 +5,18 @@ import { ticketPath } from "../paths";
 export default function TicketsPage() {
 	return (
 		<div>
-			{initialTickets.map((ticket) => (
-				<div key={ticket.id} className="flex gap-2 items-center">
-					<h2 className="text-lg">{ticket.title}</h2>
-					<Link href={ticketPath(ticket.id)} className="text-sm underline">
-						view
-					</Link>
-				</div>
-			))}
+			{initialTickets.map((ticket) => {
+				//console.log("@@@ DEBUG", ticketPath(ticket.id));
+				return (
+					<div key={ticket.id} className="flex gap-2 items-center">
+						<div>{ticket.status}</div>
+						<h2 className="text-lg">{ticket.title}</h2>
+						<Link href={ticketPath(ticket.id)} className="text-sm underline">
+							view
+						</Link>
+					</div>
+				);
+			})}
 		</div>
 	);
 }
