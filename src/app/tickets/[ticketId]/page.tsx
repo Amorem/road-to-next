@@ -2,6 +2,7 @@ import { ticketsPath } from "@/app/paths";
 import Placeholder from "@/components/placeholder";
 import { Button } from "@/components/ui/button";
 import { initialTickets } from "@/data";
+import TicketItem from "@/features/ticket/component/ticket-item";
 import Link from "next/link";
 
 type TicketPageProps = {
@@ -25,9 +26,8 @@ export default async function TicketPage({ params }: TicketPageProps) {
 		);
 	}
 	return (
-		<div>
-			<h2 className="text-lg">{ticket?.title}</h2>
-			<p>{ticket?.content}</p>
+		<div className="flex justify-center animate-fade-in-from-top">
+			<TicketItem ticket={ticket} isDetail />
 		</div>
 	);
 }

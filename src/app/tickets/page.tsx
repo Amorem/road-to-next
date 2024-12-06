@@ -9,7 +9,7 @@ export default function TicketsPage() {
 			<div className="flex flex-1 flex-col items-center gap-y-4 animate-fade-in-from-top">
 				{initialTickets.map((ticket) => {
 					//console.log("@@@ DEBUG", ticketPath(ticket.id));
-					return <TicketItem key={ticket.id} ticket={ticket} />;
+					return <TicketItem key={ticket.id} ticket={ticket} isDetail />;
 				})}
 			</div>
 		</div>
