@@ -1,15 +1,12 @@
 import Link from "next/link";
+import Heading from "@/components/heading";
 import { ticketsPath } from "./paths";
 
 export default function Homepage() {
 	return (
 		<div className="flex flex-1 flex-col gap-y-8">
-			<div>
-				<h2 className="text-3xl font-bold tracking-tight">Homepage</h2>
-				<p className="text-sm text-muted-foreground">
-					Your home place to start
-				</p>
-			</div>
+			<Heading title="Homepage" description="Your home place to start" />
+
 			<div className="flex flex-1 flex-col items-center">
 				<Link href={ticketsPath}>Go to Tickets</Link>
 			</div>
