@@ -3,5 +3,5 @@ export default function TicketsLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	return <div className="bg-green-900 p-8">{children}</div>;
+	return <div className="">{children}</div>;
 }

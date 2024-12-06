@@ -7,7 +7,6 @@ type TicketPageProps = {
 export default async function TicketPage({ params }: TicketPageProps) {
 	const { ticketId } = await params;
 	const ticket = initialTickets.find((item) => item.id === ticketId);
-	console.log("@@@DEBUG", ticket);
 
 	if (!ticket) {
 		return <div>Ticket not found</div>;
