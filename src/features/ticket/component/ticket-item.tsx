@@ -28,7 +28,7 @@ export default function TicketItem({ ticket, isDetail }: TicketItemProps) {
         "max-w-[420px]": !isDetail,
       })}
     >
-      <Card className="w-full ">
+      <Card className="w-full">
         <CardHeader>
           <CardTitle className="flex gap-x-2">
             <span>{TICKET_ICONS[ticket.status]}</span>
