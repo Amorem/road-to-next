@@ -5,12 +5,12 @@ import { Button } from "@/components/ui/button";
 import TicketItem from "@/features/ticket/component/ticket-item";
 import { GetTicket } from "@/features/ticket/queries/getTicket";
 
-type TicketPageProps = {
-  params: { ticketId: string };
-};
-
-export default async function TicketPage({ params }: TicketPageProps) {
-  const { ticketId } = params;
+export default async function TicketPage({
+  params,
+}: {
+  params: Promise<{ ticketId: string }>;
+}) {
+  const ticketId = (await params).ticketId;
   const ticket = await GetTicket(ticketId);
 
   if (!ticket) {
