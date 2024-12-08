@@ -6,7 +6,7 @@ export async function TicketList() {
   return (
     <div className="flex flex-1 flex-col items-center gap-y-4 animate-fade-in-from-top">
       {tickets.map((ticket) => {
-        return <TicketItem key={ticket.id} ticket={ticket} isDetail />;
+        return <TicketItem key={ticket.id} ticket={ticket} />;
       })}
     </div>
   );
