@@ -1,6 +1,7 @@
 "use server";
 
 import { ticketPath, ticketsPath } from "@/app/paths";
+import { formErrorToActionState } from "@/components/form/utils/to-action-state";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -30,12 +31,12 @@ export default async function UpsertTicket(
       create: data,
     });
   } catch (error) {
-    return { message: "Something went wrong", payload: formData };
+    return formErrorToActionState(error, formData);
   }
 
   revalidatePath(ticketsPath);
   if (ticketId) {
     redirect(ticketPath(ticketId));
   }
-  return { message: "Ticket created" };
+  return { message: "Ticket created", fieldErrors: {} };
 }
