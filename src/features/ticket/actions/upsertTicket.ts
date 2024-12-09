@@ -7,6 +7,7 @@ import { redirect } from "next/navigation";
 
 export default async function UpsertTicket(
   ticketId: string | undefined,
+  actionState: { message: string },
   formData: FormData
 ) {
   const data = {
@@ -26,4 +27,5 @@ export default async function UpsertTicket(
   if (ticketId) {
     redirect(ticketPath(ticketId));
   }
+  return { message: "Ticket created" };
 }
