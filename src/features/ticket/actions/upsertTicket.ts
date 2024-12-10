@@ -1,5 +1,6 @@
 "use server";
 
+import { setCookieByKey } from "@/actions/cookies";
 import { ticketPath, ticketsPath } from "@/app/paths";
 import {
   formErrorToActionState,
@@ -15,7 +16,7 @@ const upsertTicketSchema = z.object({
   content: z.string().min(1).max(1024),
 });
 
-export default async function UpsertTicket(
+export async function UpsertTicket(
   ticketId: string | undefined,
   actionState: { message: string },
   formData: FormData
@@ -38,7 +39,9 @@ export default async function UpsertTicket(
   }
 
   revalidatePath(ticketsPath);
+
   if (ticketId) {
+    setCookieByKey("toast", "Ticket updated");
     redirect(ticketPath(ticketId));
   }
   return toActionState("SUCCESS", "Ticket created");
