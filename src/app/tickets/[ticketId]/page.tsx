@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import TicketItem from "@/features/ticket/component/ticket-item";
 import { GetTicket } from "@/features/ticket/queries/getTicket";
-import { RedirectToast } from "@/components/redirect-toast";
 
 export default async function TicketPage({
   params,
@@ -19,7 +18,6 @@ export default async function TicketPage({
       <div className="flex justify-center animate-fade-in-from-top">
         <TicketItem ticket={ticket} isDetail />
       </div>
-      <RedirectToast />
     </>
   );
 }
