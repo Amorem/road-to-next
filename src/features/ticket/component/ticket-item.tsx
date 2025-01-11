@@ -20,6 +20,7 @@ import { TICKET_STATUS_ICONS } from "@/features/ticket/constants";
 import { toCurrencyFromCent } from "@/utils/currency";
 import { deleteTicket } from "../actions/deleteTicket";
 import TicketMoreMenu from "./ticket-more-menu";
+import { ConfirmDialog } from "@/components/confirm-dialog";
 
 type TicketItemProps = {
   ticket: Ticket;
@@ -35,13 +36,16 @@ export default function TicketItem({ ticket, isDetail }: TicketItemProps) {
     </Button>
   );
 
-  const deleteButton = (
-    <form action={deleteTicket.bind(null, ticket.id)}>
-      <Button variant={"outline"} size={"icon"}>
-        <LucideTrash className="w-4 h-4" />
-      </Button>
-    </form>
-  );
+  // const deleteButton = (
+  //   <ConfirmDialog
+  //     action={deleteTicket.bind(null, ticket.id)}
+  //     trigger={
+  //       <Button variant={"outline"} size={"icon"}>
+  //         <LucideTrash className="w-4 h-4" />
+  //       </Button>
+  //     }
+  //   />
+  // );
 
   const editButton = (
     <Button variant={"outline"} asChild size={"icon"}>
@@ -95,7 +99,6 @@ export default function TicketItem({ ticket, isDetail }: TicketItemProps) {
       <div className="flex flex-col gap-y-1">
         {isDetail ? (
           <>
-            {deleteButton}
             {editButton}
             {moreMenu}
           </>
