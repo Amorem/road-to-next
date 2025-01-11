@@ -16,7 +16,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { TICKET_ICONS } from "@/features/ticket/constants";
+import { TICKET_STATUS_ICONS } from "@/features/ticket/constants";
 import { toCurrencyFromCent } from "@/utils/currency";
 import { deleteTicket } from "../actions/deleteTicket";
 import TicketMoreMenu from "./ticket-more-menu";
@@ -72,7 +72,7 @@ export default function TicketItem({ ticket, isDetail }: TicketItemProps) {
       <Card className="w-full">
         <CardHeader>
           <CardTitle className="flex gap-x-2">
-            <span>{TICKET_ICONS[ticket.status]}</span>
+            <span>{TICKET_STATUS_ICONS[ticket.status]}</span>
             <span className=" truncate">{ticket.title}</span>
           </CardTitle>
         </CardHeader>
